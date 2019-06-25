@@ -33,7 +33,7 @@ export class HomePage {
 
   }
   callback = (res) => {
-    console.log('Goi logout', res);
+    console.log('Goi logout', res.data);
     return Promise.resolve({ next: "CLOSE" });
   }
 

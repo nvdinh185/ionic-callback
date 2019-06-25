@@ -23,9 +23,8 @@ export class DynamicFormWebPage {
 
   onClick(btn) {
     console.log("0k", btn);
-    let keyResults = {};
     btn.next_data = {
-      data: keyResults
+      data: "this is data"
     }
     this.next(btn);
   }
@@ -37,7 +36,7 @@ export class DynamicFormWebPage {
       this.viewCtrl.dismiss()
     } else if (btn.next == 'CALLBACK') {
       console.log(2)
-      this.callback(123)
+      this.callback(btn.next_data)
         .then(nextStep => {
           console.log(nextStep)
           this.next(nextStep)
