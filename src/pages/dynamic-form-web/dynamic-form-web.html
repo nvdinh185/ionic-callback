@@ -6,39 +6,24 @@
 			</button>
 		</ion-buttons>
 		<ion-title>{{dynamicForm.title}}</ion-title>
-		<ion-buttons right *ngFor="let btn of dynamicForm?.buttons">
-			<button ion-button icon-only color="{{btn.color}}" (click)="onClickHeader(btn)">
-				<ion-icon name="{{btn.icon}}"></ion-icon>
-			</button>
-		</ion-buttons>
 	</ion-toolbar>
 </ion-header>
 
-<ion-content no-padding class="background-page gradient">
+<ion-content no-padding>
 	<ion-grid>
 		<ion-row>
-			<ion-col class="background-card gradient grid-border" text-center col-12 offset-xl-3 col-xl-6 offset-lg-3
-				col-lg-6 offset-md-2 col-md-8 col-sm-12>
-
+			<ion-col text-center>
 				<ion-list *ngFor="let it of dynamicForm.items">
-
-					<!-- title -->
-					<ion-item class="background-card" *ngIf="it.type == 'title'">
-						<ion-label class="title-item">{{it.name}}</ion-label>
-					</ion-item>
-
 					<!-- button action -->
 					<ion-grid *ngIf="it.type == 'button'">
 						<ion-row>
 							<ion-col *ngFor="let myBtn of it.options" style="text-align: center;">
-								<button class="button-item" [(ngStyle)]="pageContent" ion-button round
-									(click)="onClick(myBtn)">
+								<button class="button-item" ion-button round (click)="onClick(myBtn)">
 									{{myBtn?.name}}
 								</button>
 							</ion-col>
 						</ion-row>
 					</ion-grid>
-
 				</ion-list>
 			</ion-col>
 		</ion-row>

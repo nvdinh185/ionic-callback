@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, ModalController } from 'ionic-angular';
+import { ModalController } from 'ionic-angular';
 import { DynamicFormWebPage } from '../dynamic-form-web/dynamic-form-web';
 
 @Component({
@@ -8,7 +8,7 @@ import { DynamicFormWebPage } from '../dynamic-form-web/dynamic-form-web';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController, public modalCtrl: ModalController) { }
+  constructor(public modalCtrl: ModalController) { }
 
   onClick() {
     let form = {
@@ -25,7 +25,6 @@ export class HomePage {
     };
 
     let modal = this.modalCtrl.create(DynamicFormWebPage, {
-      parent: this,
       callback: this.callback,
       form: form
     });
@@ -34,7 +33,7 @@ export class HomePage {
   }
   
   callback = (res) => {
-    console.log('Goi logout', res.data);
+    console.log('Goi logout: ', res.data);
     return Promise.resolve({ next: "CLOSE" });
   }
 

@@ -1,8 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { ErrorHandler, NgModule } from '@angular/core';
-import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
-import { SplashScreen } from '@ionic-native/splash-screen';
-import { StatusBar } from '@ionic-native/status-bar';
+import { NgModule } from '@angular/core';
+import { IonicApp, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -24,10 +22,6 @@ import { DynamicFormWebPage } from '../pages/dynamic-form-web/dynamic-form-web';
     HomePage,
     DynamicFormWebPage
   ],
-  providers: [
-    StatusBar,
-    SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
-  ]
+  providers: []
 })
 export class AppModule {}
